@@ -9,11 +9,11 @@ var notas = function(myScope){
 		if(myScope.notitas[i].id != 1)
 			myScope.notitas[i].id = myScope.notitas[i].id-1;
 	}
-			}
+			};
 	myScope.add = function() {
 		this.nota.id = myScope.notitas.length+1;
 		this.nota.done = false;
-		myScope.notitas.push(angular.copy(this.nota));}
+		myScope.notitas.push(angular.copy(this.nota));};
 	};
 notas.$inject = ['$scope'];
 app.controller('notas',notas);

@@ -1,5 +1,7 @@
 <html>
  <head></head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="app/app.js"></script>
  <body data-ng-app="app" data-ng-controller="notas">
  	<div data-ng-repeat="nota in notitas" class="done-{{nota.done}}">{{notas.id}}
   {{nota.title}} {{nota.description}} {{nota.done}} <input type="checkbox" data-ng-model="nota.done" name="nota.id"/> <span data-ng-click="remove(this.nota)">remove</span></div>
