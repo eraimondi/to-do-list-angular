@@ -1,0 +1,30 @@
+{
+  "name": "firstapp",
+  "description": "Primer Proyecto",
+  "main": "index.html",
+  "authors": [
+    "Ed"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angularjs",
+    "agilehub"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.2",
+    "angular": "^1.5.3"
+  }
+}
