@@ -1,15 +1,12 @@
 <html>
  <head></head>
  <body data-ng-app="app" data-ng-controller="notas">
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-   <script src="app.js"></script>
-   <div data-ng-repeat="nota in notitas">{{notas.id}}
-        {{nota.title}} {{nota.description}} {{nota.done}} <span data-ng-click="remove(this.nota)">remove</span></div>
-    <form id="createnote" ng-submit="add()" name="createnote">
-        <input type="text" data-ng-model="nota.title" name="nota.id"/>
-        <input type="text" data-ng-model="nota.description" name="nota.id"/>
-        <input type="checkbox" data-ng-model="nota.done" name="nota.id"/>
-        <button type="submit" class="btn btn-success">Agregar</button>
-    </form>
- </body>
+ 	<div data-ng-repeat="nota in notitas" class="done-{{nota.done}}">{{notas.id}}
+  {{nota.title}} {{nota.description}} {{nota.done}} <input type="checkbox" data-ng-model="nota.done" name="nota.id"/> <span data-ng-click="remove(this.nota)">remove</span></div>
+   <form id="createnote" ng-submit="add()" name="createnote">
+    <input type="text" data-ng-model="nota.title" name="nota.id"/>
+    <input type="text" data-ng-model="nota.description" name="nota.id"/>
+    <button type="submit" class="btn btn-success">Agregar</button>
+   </form>
+</body>
 </html>
