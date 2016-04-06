@@ -1,0 +1,13 @@
+
+<div data-ng-repeat="nota in notitas" class="done-{{nota.done}}">
+    {{nota.id}} {{nota.title}} {{nota.description}} {{nota.done}}
+    <input type="checkbox" data-ng-model="nota.done"/>
+    <span data-ng-click="remove(nota)">remove</span>
+    <span data-ng-click="edit(nota)">edit</span>
+</div>
+
+<form id="createnote" ng-submit="add(nota)" name="createnote">
+    <input type="text" data-ng-model="nota.title" name="nota.id"/>
+    <input type="text" data-ng-model="nota.description" name="nota.id"/>
+    <button type="submit" class="btn btn-success">Agregar</button>
+</form>

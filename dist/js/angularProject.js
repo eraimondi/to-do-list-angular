@@ -1,5 +1,5 @@
-var app = angular.module('app',[]);
-var notas = function(myScope) {
+var app = angular.module('app',['ui.router']);
+var notas = function(myScope,$state) {
     myScope.notitas =
         [
             {
@@ -31,9 +31,51 @@ var notas = function(myScope) {
         newnota.title = nota.title;
         myScope.notitas.push(newnota);
     };
-    myScope.edit =function(nota) {
-        console.log("algo");
+    myScope.edit = function(nota) {
+        console.log(nota);
+        $state.go('edit', {id : nota.id,description : nota.description,title:nota.title});
     };
+    myScope.close = function (nota){
+        $state.go('list',{nota:nota});
+    }
 };
-notas.$inject = ['$scope'];
+
+notas.$inject = ['$scope','$state'];
 app.controller('notas',notas);
+
+////////////////////////ROUTER//////////////////
+app.config(RouterFunction);
+RouterFunction.$inject = ['$stateProvider', '$urlRouterProvider'];
+function RouterFunction($stateProvider,$urlRouterProvider)
+{
+    // For any unmatched url, send to /route1
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state('list', {
+            url: "/",
+            templateUrl: "app/todo.template.view.html"
+        })
+        .state('edit', {
+            url: "/list",
+            templateUrl: "app/todo.template.edit.view.html",
+            params: {
+                nota: null
+            },
+            controller: 'notas'
+        })
+
+        .state('route2', {
+            url: "/route2",
+            templateUrl: "route2.html"
+        })
+        .state('route2.list', {
+            url: "/list",
+            templateUrl: "route2.list.html",
+            controller: function($scope){
+                $scope.things = ["A", "Set", "Of", "Things"];
+            }
+        })
+    };
+
+
